@@ -74,18 +74,25 @@ public class RestServiceBeanPostProcessor implements BeanPostProcessor {
 							String methodAnnoName = methodAnno.annotationType().getName();
 							log.info("methodAnnoName:" + methodAnnoName);
 							Object methodAnnoValue = AnnotationUtils.getValue(methodAnno);
-							if(methodAnnoValue != null){
-								log.info("methodAnno[" + methodAnno + "]-value:" + TCUtil.sv(methodAnnoValue));
-								if(Path.class.getName().equals(methodAnnoName)){
-									restServiceMethod.setPath(methodAnnoValue.toString());
-								}
-								if(POST.class.getName().equals(methodAnnoName)){
-									restServiceMethod.setHttpMethod("post");
-								} else if (GET.class.getName().equals(methodAnnoName)){
-									restServiceMethod.setHttpMethod("get");
-								}
-								if(RestMethodDesc.class.getName().equals(methodAnnoName)){
-									restServiceMethod.setDesc(methodAnnoValue.toString());
+							log.info("methodAnno[" + methodAnno + "]-value:" + TCUtil.sv(methodAnnoValue));
+							if(Path.class.getName().equals(methodAnnoName)){
+								restServiceMethod.setPath(methodAnnoValue.toString());
+							}
+							if(POST.class.getName().equals(methodAnnoName)){
+								restServiceMethod.setHttpMethod("post");
+							} else if (GET.class.getName().equals(methodAnnoName)){
+								restServiceMethod.setHttpMethod("get");
+							}
+							if(RestMethodDesc.class.getName().equals(methodAnnoName)){
+								restServiceMethod.setDesc(methodAnnoValue.toString());
+							}
+						
+						}
+						Annotation[][] parameterAnnotations = method.getParameterAnnotations();
+						if(parameterAnnotations.length > 0){
+							for (Annotation[] parameterAnno : parameterAnnotations) {
+								for (Annotation annotation : parameterAnno) {
+									restServiceMethod.getRequestParameters().add(AnnotationUtils.getValue(annotation).toString());
 								}
 							}
 						}

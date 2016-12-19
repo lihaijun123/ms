@@ -11,6 +11,7 @@ import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.focustech.focus3d.paint.model.PaintModelModel;
 import com.focustech.focus3d.paint.model.service.PaintModelService;

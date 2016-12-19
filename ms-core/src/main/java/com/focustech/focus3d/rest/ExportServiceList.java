@@ -125,7 +125,14 @@ public class ExportServiceList {
 				cell = row.createCell((short) 3);
 				cell.setCellType(HSSFCell.CELL_TYPE_STRING);
 				cell.setEncoding(HSSFCell.ENCODING_UTF_16);
-				cell.setCellValue("");
+				List<String> requestParameters = serviceMethod.getRequestParameters();
+				String parames = "";
+				if(ListUtils.isNotEmpty(requestParameters)){
+					for (String p : requestParameters) {
+						parames += (p + ",");
+					}
+				}
+				cell.setCellValue(parames);
 				//5
 				cell = row.createCell((short) 4);
 				cell.setCellType(HSSFCell.CELL_TYPE_STRING);
