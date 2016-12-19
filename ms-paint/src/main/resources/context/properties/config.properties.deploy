@@ -43,3 +43,4 @@ agent.site.domain=http://agent.3d-focus.com
 apply.sms.mobile.list=18652007750,13852292933,13451836990
 #测试账号手机号#密码#短信验证码#使用次数
 test.account=13451836990#123#064289#5
+rest.service.protocal=http://192.168.21.48:9001

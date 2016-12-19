@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.focustech.focus3d.paint.model.PaintModelModel;
 import com.focustech.focus3d.paint.model.service.PaintModelService;
+import com.focustech.focus3d.rest.RestMethodDesc;
 import com.focustech.focus3d.rest.constant.ContentType;
 
 /**
@@ -22,6 +23,7 @@ import com.focustech.focus3d.rest.constant.ContentType;
  * @author lihaijun
  *
  */
+@RestMethodDesc("模型服务")
 @Service
 @Path(value = "/rest/model")
 @Produces(ContentType.APPLICATION_JSON_UTF_8)
@@ -29,6 +31,7 @@ public class ModelRestService {
 	@Autowired
 	private PaintModelService<PaintModelModel> modelService;
 	
+	@RestMethodDesc("获取模型列表数据（2D全景和3D模型）")
 	@POST
 	@Path("list")
 	public String list() {
