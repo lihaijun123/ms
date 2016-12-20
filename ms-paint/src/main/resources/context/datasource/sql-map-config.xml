@@ -12,6 +12,7 @@
 		<sqlMap resource="context/datasource/sqlmap/paint_model_SqlMap.xml"/>
 		<sqlMap resource="context/datasource/sqlmap/paint_catgory_SqlMap.xml"/>
 		<sqlMap resource="context/datasource/sqlmap/paint_product_SqlMap.xml"/>
+		<sqlMap resource="context/datasource/sqlmap/paint_share_SqlMap.xml"/>
 	
 		
 </sqlMapConfig>
