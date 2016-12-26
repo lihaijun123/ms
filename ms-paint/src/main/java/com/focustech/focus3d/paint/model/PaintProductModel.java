@@ -41,6 +41,7 @@ public class PaintProductModel extends PaintProduct<PaintProductModel, PaintProd
 		jo.put("dosage", getDosage());
 		jo.put("picFileUrl", picFileUrl);
 		jo.put("modelFileUrl", modelFileUrl);
+		jo.put("version", getVersionNum());
 		return jo.toString();
 	}
 

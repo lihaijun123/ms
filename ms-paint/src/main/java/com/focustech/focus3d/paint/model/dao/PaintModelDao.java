@@ -17,7 +17,7 @@ public class PaintModelDao extends CommonDao<PaintModelModel> {
 
 	public List<PaintModelModel> list(){
 		PaintModelCriteria criteria = new PaintModelCriteria();
-		criteria.setOrderByClause(" model_type, house_type, add_time desc");
+		criteria.setOrderByClause(" model_type, house_type, add_time desc, name");
 		return listByCriteria(criteria);
 	}
 }
