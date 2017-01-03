@@ -15,12 +15,12 @@
 		<property name="regClientName" value="${cfs.nameserver.name}" />
 		<!--
 		<property name="memcachedClient" ref="cacheClient" />
-		<property name="directDataServer" value="${cfs.dataserver}"/>
-		 -->
 		<property name="zookeeperClient" ref="zookeeperClient"/>
+		 -->
+		<property name="directDataServer" value="${cfs.dataserver}"/>
 		<property name="directVisitServer" value="${cfs.webserver.url}"/>
 	</bean>
-	<!-- 注册中心 -->
+	<!-- 注册中心
 	<bean id="zookeeperClient" class="com.focustech.focus3d.bundle.zk.cluser.Focus3DZookeeperClient" init-method="init">
 		<property name="timeout" value="${zk.client.timeout}"/>
 		<property name="cluser">
@@ -29,7 +29,7 @@
 			</bean>
 		</property>
 	</bean>
-	
+	 -->
 
 	<bean class="com.focustech.common.utils.SpringContextUtil"/>
 
