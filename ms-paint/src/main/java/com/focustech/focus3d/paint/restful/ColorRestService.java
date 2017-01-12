@@ -38,10 +38,9 @@ public class ColorRestService {
 	@POST
 	@Path("list")
 	public String list() {
-		JSONArray jary = new JSONArray();
 		List<PaintColorModel> list = colorService.list();
+		JSONObject idJo = new JSONObject();
 		for (PaintColorModel paintColorModel : list) {
-			JSONObject idJo = new JSONObject();
 			JSONObject jo = new JSONObject();
 			jo.put("name", paintColorModel.getName());
 			jo.put("sn", paintColorModel.getEncryptSn());
@@ -51,8 +50,7 @@ public class ColorRestService {
 				jo.getJSONArray("colors").add(paintProductModel.serialize());
 			}
 			idJo.put(paintColorModel.getSn(), jo);
-			jary.add(idJo);
 		}
-		return jary.toString();
+		return idJo.toString();
 	}
 }
