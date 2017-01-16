@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.focustech.cief.filemanage.common.utils.FileManageUtil;
 import com.focustech.focus3d.agent.dao.CommonDao;
 import com.focustech.focus3d.agent.service.impl.CommonServiceTemplate;
-import com.focustech.focus3d.paint.ibator.PaintModelCriteria;
 import com.focustech.focus3d.paint.model.PaintModelModel;
 import com.focustech.focus3d.paint.model.dao.PaintModelDao;
 import com.focustech.focus3d.paint.model.service.PaintModelService;
@@ -18,6 +18,7 @@ import com.focustech.focus3d.paint.model.service.PaintModelService;
  *
  */
 @Service
+@Transactional
 public class PaintModelServiceImpl extends CommonServiceTemplate<PaintModelModel> implements PaintModelService<PaintModelModel> {
 
 	@Autowired

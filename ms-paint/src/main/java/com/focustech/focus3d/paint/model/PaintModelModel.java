@@ -43,8 +43,8 @@ public class PaintModelModel extends PaintModel<PaintModelModel, PaintModelCrite
 		jo.put("houseType", TCUtil.iv(getHouseType()));
 		jo.put("picFileUrl", picFileUrl);
 		jo.put("modelFileUrl", modelFileUrl);
-		jo.put("useCount", "1");
-		jo.put("version", TCUtil.sv(getVersionNum()));
+		jo.put("useCount", TCUtil.iv(getUseCount()));
+		jo.put("version", TCUtil.iv(getVersionNum()));
 		jo.put("addTime", DateUtils.formatDate(getAddTime(), "yyyy-MM-dd"));
 		return jo.toString();
 	}

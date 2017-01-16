@@ -2,6 +2,7 @@ package com.focustech.focus3d.paint.restful;
 
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -12,6 +13,8 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.focustech.common.utils.StringUtils;
+import com.focustech.common.utils.TCUtil;
 import com.focustech.focus3d.paint.model.PaintModelModel;
 import com.focustech.focus3d.paint.model.service.PaintModelService;
 import com.focustech.focus3d.rest.RestMethodDesc;
@@ -52,4 +55,29 @@ public class ModelRestService {
 		
 		return rv.toString();
 	}
+	
+	@RestMethodDesc("模型使用次数")
+	@POST
+	@Path("/usecount")
+	public String useCount(@FormParam("id")String id) {
+		JSONObject jo = new JSONObject();
+		int status = 0;
+		String message = "";
+		if(StringUtils.isNotEmpty(id)){
+			PaintModelModel paintModelModel = modelService.selectBySn(TCUtil.lv(id));
+			if(paintModelModel != null){
+				int useCount = TCUtil.iv(paintModelModel.getUseCount());
+				paintModelModel.setUseCount(++ useCount);
+				modelService.updateByKeySelective(paintModelModel);
+				status = 1;
+				message = "保存成功";
+			} else {
+				message = "保存失败";
+			}
+		}
+		jo.put("status", status);
+		jo.put("message", message);
+		return jo.toString();
+	}
+	
 }
