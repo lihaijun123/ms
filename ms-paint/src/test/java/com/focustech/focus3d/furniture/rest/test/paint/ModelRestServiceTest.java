@@ -17,7 +17,7 @@ import com.focustech.focus3d.rest.test.AbstractTest;
 public class ModelRestServiceTest extends AbstractTest{
 	
 
-	//@Test
+	@Test
 	public void testHouse() {
 		List<NameValuePair> qparams = new ArrayList<NameValuePair>();
 		httpRequest(getProtocal() + "/rest/model/list", qparams, HttpMethod.POST);
@@ -25,7 +25,7 @@ public class ModelRestServiceTest extends AbstractTest{
 	@Test
 	public void testUseCount() {
 		List<NameValuePair> qparams = new ArrayList<NameValuePair>();
-		qparams.add(new BasicNameValuePair("id", "2"));
+		qparams.add(new BasicNameValuePair("id", "6"));
 		httpRequest(getProtocal() + "/rest/model/usecount", qparams, HttpMethod.POST);
 	}
 
