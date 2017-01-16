@@ -35,19 +35,21 @@ public class ModelRestService {
 	@POST
 	@Path("list")
 	public String list() {
-		JSONObject data = new JSONObject();
+		/*JSONObject data = new JSONObject();
 		data.put("d2", new JSONArray());
-		data.put("d3", new JSONArray());
+		data.put("d3", new JSONArray());*/
+		JSONArray rv = new JSONArray();
 		List<PaintModelModel> list = modelService.list();
 		for (PaintModelModel paintModelModel : list) {
-			int modelType = paintModelModel.getModelType();
-			if(modelType == 1){
+			//int modelType = paintModelModel.getModelType();
+			/*if(modelType == 1){
 				data.getJSONArray("d2").add(paintModelModel.serialize());
 			} else {
 				data.getJSONArray("d3").add(paintModelModel.serialize());
-			}
+			}*/
+			rv.add(paintModelModel.serialize());
 		}
 		
-		return data.toString();
+		return rv.toString();
 	}
 }

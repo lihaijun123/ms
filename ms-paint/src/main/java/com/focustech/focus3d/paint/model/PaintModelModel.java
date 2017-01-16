@@ -37,12 +37,13 @@ public class PaintModelModel extends PaintModel<PaintModelModel, PaintModelCrite
 	
 	public String serialize(){
 		JSONObject jo = new JSONObject();
+		jo.put("id", TCUtil.sv(getSn()));
 		jo.put("name", getName());
-		jo.put("modelType", getModelType());
-		jo.put("houseType", getHouseType());
+		//jo.put("modelType", getModelType());
+		jo.put("houseType", TCUtil.sv(getHouseType()));
 		jo.put("picFileUrl", picFileUrl);
 		jo.put("modelFileUrl", modelFileUrl);
-		jo.put("useCount", TCUtil.sv(getUseCount()));
+		jo.put("useCount", "1");
 		jo.put("version", TCUtil.sv(getVersionNum()));
 		jo.put("addTime", DateUtils.formatDate(getAddTime(), "yyyy-MM-dd"));
 		return jo.toString();

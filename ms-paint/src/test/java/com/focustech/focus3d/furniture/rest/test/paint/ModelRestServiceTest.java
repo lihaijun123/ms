@@ -24,7 +24,7 @@ public class ModelRestServiceTest extends AbstractTest{
 
 	@Override
 	protected String getProtocal() {
-		return URL_RELEASE;
+		return URL_TEST;
 	}
 	
 }
