@@ -58,7 +58,7 @@ public class ModelRestService {
 	
 	@RestMethodDesc("模型使用次数")
 	@POST
-	@Path("/usecount")
+	@Path("usecount")
 	public String useCount(@FormParam("id")String id) {
 		JSONObject jo = new JSONObject();
 		int status = 0;
