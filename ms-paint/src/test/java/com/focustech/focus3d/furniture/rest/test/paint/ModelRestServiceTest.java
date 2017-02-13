@@ -22,7 +22,7 @@ public class ModelRestServiceTest extends AbstractTest{
 		List<NameValuePair> qparams = new ArrayList<NameValuePair>();
 		httpRequest(getProtocal() + "/rest/model/list", qparams, HttpMethod.POST);
 	}
-	@Test
+	//@Test
 	public void testUseCount() {
 		List<NameValuePair> qparams = new ArrayList<NameValuePair>();
 		qparams.add(new BasicNameValuePair("id", "6"));
@@ -31,7 +31,7 @@ public class ModelRestServiceTest extends AbstractTest{
 
 	@Override
 	protected String getProtocal() {
-		return URL_RELEASE;
+		return URL_TEST;
 	}
 	
 }

@@ -38,22 +38,26 @@ public class ModelRestService {
 	@POST
 	@Path("list")
 	public String list() {
-		/*JSONObject data = new JSONObject();
-		data.put("d2", new JSONArray());
-		data.put("d3", new JSONArray());*/
-		JSONArray rv = new JSONArray();
+		JSONObject data = new JSONObject();
+		data.put("villa", new JSONArray());
+		data.put("samll-high-rise", new JSONArray());
+		data.put("high-rise", new JSONArray());
 		List<PaintModelModel> list = modelService.list();
 		for (PaintModelModel paintModelModel : list) {
-			//int modelType = paintModelModel.getModelType();
-			/*if(modelType == 1){
-				data.getJSONArray("d2").add(paintModelModel.serialize());
-			} else {
-				data.getJSONArray("d3").add(paintModelModel.serialize());
-			}*/
-			rv.add(paintModelModel.serialize());
+			int houseType = paintModelModel.getHouseType();
+			if(houseType == 1){
+				//别墅
+				data.getJSONArray("villa").add(paintModelModel.serialize());
+			} else if(houseType == 2){
+				//小高层
+				data.getJSONArray("samll-high-rise").add(paintModelModel.serialize());
+			} else if(houseType == 3){
+				//高层
+				data.getJSONArray("high-rise").add(paintModelModel.serialize());
+			}
 		}
 		
-		return rv.toString();
+		return data.toString();
 	}
 	
 	@RestMethodDesc("模型使用次数")
